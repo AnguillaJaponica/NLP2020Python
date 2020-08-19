@@ -12,7 +12,7 @@ df = pd.read_table(
 
 def split_file(n):
     tmp = df.reset_index(drop=False)
-    df_cut = pd.qcut(tmp.index, N, labels=[i for i in range(n)])
+    df_cut = pd.qcut(tmp.index, n, labels=[i for i in range(n)])
     df_cut = pd.concat([df, pd.Series(df_cut, name='sp')], axis=1)
 
     return df_cut
